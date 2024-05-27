@@ -10,6 +10,7 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on('chat message', (msg) => {
+      console.log('Message received: ', msg);
       setMessages((prevMessages) => [...prevMessages, msg]);
     });
 
@@ -20,8 +21,11 @@ const Chat = () => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    socket.emit('chat message', message);
-    setMessage('');
+    if (message.trim()) {
+      console.log('Sending message: ', message);
+      socket.emit('chat message', message);
+      setMessage('');
+    }
   };
 
   return (
