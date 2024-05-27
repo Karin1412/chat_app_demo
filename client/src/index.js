@@ -1,13 +1,12 @@
-// src/App.js
+// src/index.js
 import React from 'react';
-import Chat from './App';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 
-function App() {
-  return (
-    <div className="App">
-      <Chat />
-    </div>
-  );
-}
-
-export default App;
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
